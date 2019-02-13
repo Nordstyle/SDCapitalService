@@ -40,3 +40,24 @@ const parallaxSlider = () => {
   });
 };
 parallaxSlider();
+
+/**
+ * Слайдер сертификатов 
+ */
+
+const certificatesSlider = () => {
+  var swiper = new Swiper('.sertificates .swiper-container', {
+    speed: 600,
+    slidesPerView: 4,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: '.sertificates .swiper-button-next',
+      prevEl: '.sertificates .swiper-button-prev',
+    },
+  });
+};
+certificatesSlider();
+
+lightGallery(document.querySelector('.sertificates .swiper-wrapper'), {
+  thumbnail:true
+}); 

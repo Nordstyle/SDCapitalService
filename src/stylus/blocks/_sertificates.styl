@@ -1,0 +1,24 @@
+.sertificates
+  & .swiper-container 
+    width: 100%;
+    height: 100%;
+  & .swiper-slide
+    display: flex;
+    justify-content: center;
+    position relative
+    & img 
+      width 100%
+      height 30rem
+      object-fit: contain
+  & .gallery__hover 
+    position absolute
+    width 100%
+    height 100%
+    left 0
+    top 0 
+    background url('../../images/zoom.png') center center no-repeat
+    background-size 30px 30px
+    opacity 0
+    transition 0.3s
+.sertificates .swiper-slide:hover .gallery__hover
+  opacity 1
