@@ -1,0 +1,33 @@
+section.section__block.contacts
+  .section__title Наши контакты 
+  .g-wrapper 
+    .contacts__container
+      .contacts__left
+        .contacts__item
+          .contacts__title Информация
+          a(href="tel:#").contacts__link.contacts__link_phone +7 (123) 123-12-12
+          a(href="tel:#").contacts__link.contacts__link_mail mail@mail.ru
+          .contacts__link.contacts__link_target Россия, Нск, пос. Тестовый адрес, завод стр. 1А
+        .contacts__item
+          .contacts__title Мы на карте
+          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4eb921d640f66364f19099bdd9a8d5ac30d6a95dfefc01848629c70022ff7753&amp;width=100%25&amp;height=250&amp;lang=ru_RU&amp;scroll=false"></script>
+      .contacts__right
+        form.contacts__form
+          .contacts__form_title Написать нам
+          .contacts__form_string
+            .contacts__form_item
+              input(type="text" name="name" required).contacts__form_input
+              label.contacts__form_label Ваше имя
+            .contacts__form_item
+              input(type="tel" name="tel" required).contacts__form_input
+              label.contacts__form_label Ваш телефон
+          .contacts__form_item
+            input(type="text" name="text" required).contacts__form_input
+            label.contacts__form_label Ваше сообщение
+          .contacts__form_offer
+            label
+              input(type="checkbox").contacts__form_checkbox
+              span
+            .contacts__form_offer_inner Я принимаю <a class="policy__callback">соглашение сайта</a> об обработке персональных данных
+          .contacts__form_footer
+            button(type="submit").button.button__orange Отправить сообщение 
