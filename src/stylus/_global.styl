@@ -40,7 +40,7 @@ html
       left: -35px;
       width: 10px;
       height: 10px;
-      border: 3px solid #EF5937;
+      border: 3px solid rgb(173, 2, 1);
       transform: rotate(45deg)
     &:after 
       content: "";
@@ -50,8 +50,16 @@ html
       right: -35px;
       width: 10px;
       height: 10px;
-      border: 3px solid #EF5937;
+      border: 3px solid rgb(173, 2, 1);
       transform: rotate(45deg)
+    &_left 
+      text-align: left
+      margin 15px 0
+      margin-bottom 5rem
+      &:before
+        display none
+      &:after
+        display none
   &__text
     font-size 1.6rem  
     line-height 2rem
@@ -67,8 +75,8 @@ html
   font-size 1.5rem
   font-family: Roboto
   font-weight 700 
-  color #008D21
-  border: 0.1rem solid #008D21;
+  color rgb(173, 2, 1)
+  border: 0.1rem solid rgb(173, 2, 1);
   margin-right 2rem
   box-shadow: 0 9px 16px rgba(0, 0, 0, 0.11)
   transition:  0.4s
@@ -76,13 +84,13 @@ html
       margin-right 0
   &:hover
       color white
-      background-color #008D21
+      background-color rgb(173, 2, 1)
   &__orange
       color white
-      background-color: #EF5937
-      border: 0.1rem solid #EF5937
+      background-color: rgb(173, 2, 1)
+      border: 0.1rem solid rgb(173, 2, 1)
       &:hover
-          color #EF5937 
+          color rgb(173, 2, 1) 
           background-color white
 
 

@@ -1,24 +1,59 @@
 .navigation
-    padding 2.4rem 0
     width 100%
     height 71px
     z-index: 600
     background white
     border-bottom 1px solid #E2E2E2
     box-shadow 0 10px 20px -10px rgba(0, 0, 0, 0.09), 0 5px 10px -5px rgba(0, 0, 0, 0.09)
+    &__container
+      height 100%
     &__nav
       display flex
+      height 100%
       justify-content: space-between
     &__li
+      position relative
+      height 100%
+      display flex
+      padding: 0 2rem 
+      -ms-flex-direction: column
+      align-items: center
+      justify-content center
       list-style-type: none;
+      cursor pointer
       & a
         font-family Roboto
         font-size 1.8rem
         color: #363636;
         font-weight 500
-        transition 0.3s
+        transition: 0.3s
         &:hover
-          color #008D21
+          color rgb(173, 2, 1)
     &__fake 
       display none
       height 71px
+    & .g-wrapper
+      height 100%
+.navigation__li:hover .navigation__submenu 
+  display block
+.navigation__submenu
+  display none
+  position: absolute
+  z-index: 600
+  padding: 1.4rem  1rem
+  top 71px
+  left 0 
+  width 24rem
+  background-color rgba(255,255,255,0.9)
+  border 1px solid #E2E2E2
+  & li 
+    list-style-type: none;
+    cursor pointer
+    margin-bottom 1rem
+    &:last-child 
+      margin-bottom 0
+  & a 
+    font-size 1.4rem
+    transition: 0.3s
+    &:hover
+      color rgb(173, 2, 1)
