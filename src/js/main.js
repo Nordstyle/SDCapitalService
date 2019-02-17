@@ -28,15 +28,7 @@ fixedNavigationMenu();
 const parallaxSlider = () => {
   var swiper = new Swiper('.mainSlider .swiper-container', {
     speed: 600,
-    parallax: true,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+    parallax: true
   });
 };
 parallaxSlider();
@@ -61,3 +53,9 @@ certificatesSlider();
 lightGallery(document.querySelector('.sertificates .swiper-wrapper'), {
   thumbnail:true
 }); 
+
+//Smooth scroll
+const scroll = new SmoothScroll('a[href*="#"]', {
+  speed: 1000,
+  speedAsDuration: true
+});
