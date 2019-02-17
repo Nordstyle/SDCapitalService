@@ -99,6 +99,12 @@ html
   color rgb(173, 2, 1)
   cursor pointer
 
+.call__wrapper .tingle-modal-box__content
+  padding 0
+
+.call__wrapper .tingle-modal-box
+  max-width: 38rem
+
 .alertify-logs 
   font-size 1.6rem
 
@@ -120,14 +126,32 @@ html
   .section
     &__block
       padding: 2rem 0 4rem
+
 @media (max-width: 1000px)
   html
     font-size: 10px
+
 @media (max-width: 867px)
   html
     font-size: 8px
+
 @media (max-width: 667px)
   .section
     &__title 
       font-size 2.8rem
       margin-bottom 3rem
+
+@media (max-width: 540px)
+  .call__wrapper .tingle-modal-box
+    max-width: 100%
+    margin: 0 auto;
+    height 100%
+  .call__wrapper .tingle-modal__close, .politic_wrapper .tingle-modal__close
+    background: white
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+
+  .call__wrapper .tingle-modal__closeLabel, .politic_wrapper .tingle-modal__closeLabel
+    color #363636
+
+  .call__wrapper .tingle-modal__closeIcon, .politic_wrapper .tingle-modal__closeIcon
+    color rgb(173, 2, 1)
