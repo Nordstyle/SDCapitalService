@@ -60,7 +60,7 @@ const scroll = new SmoothScroll('a[href*="#"]', {
   speedAsDuration: true
 });
 
-
+/* Политика конфиденциальности */
 /* Шаблон страницы политики конф. */
 const politic = `<div style="font-size: 1.6rem; line-height: 2.4rem;">
   <h2>Политика конфиденциальности</h2>
@@ -96,19 +96,166 @@ const politicModal = new tingle.modal({
   cssClass: ['politic_wrapper', 'custom-class-2']
 });
 
-const showPolitics = function(){
+const showPolitics = () => {
   politicModal.setContent(politic);
   politicModal.open();
 };
 
 const politicHandlers = () => {
-  if (!document.querySelector('.politic__open')) return null;
   const links = [...document.querySelectorAll('.politic__open')];
+  if (!links) return null;
 
   links.forEach(item => {
-    item.onclick = function() {
+    item.onclick = () => {
       showPolitics();
     };
   });
 };
 politicHandlers();
+
+
+/**
+ * Открытие/Закрытие мобильного меню
+ */
+// !function(){
+//   const body = document.querySelector('body')
+//   const menuButton = document.querySelector('.mobile__menu');
+//   const menuItems = document.querySelectorAll('.header__li a')
+//   const closeButton = document.querySelector('.header__close');
+//   const menu = document.querySelector('.header__nav');
+//   menuItems.forEach(el=>{
+//     el.onclick = () => {
+//       menu.style.transform = '';
+//       body.style.overflow = "";
+//     }
+//   })
+//   menuButton.onclick = () => {
+//     menu.style.transform = 'translateX(0%)';
+//     body.style.overflow = "hidden";
+//   }
+//   closeButton.onclick = () => {
+//     menu.style.transform = '';
+//     body.style.overflow = "";
+//   }
+// }()
+
+
+const phonesMask = () => {
+  const phonesInputs = document.querySelector('input[type="tel"]');
+  if (!phonesInputs) return null;
+
+  phonesInputs.forEach(item => {
+    new Inputmask({ mask: '+7 (999) 999-99-99' }).mask(item);
+  });
+};
+
+// почта
+var sendMail = (selector) => {
+  return fetch('/mail.php', {
+    method: 'POST',
+    body: new FormData(document.querySelector(selector))
+  }).catch((error) => {
+    alertify.error("Ошибка. Повторите отправку позже");
+  });
+};
+
+
+/**
+ * Модальное окно заказать звонок
+ */
+
+// Modal callback header
+var callBackModal = new tingle.modal({
+  stickyFooter: false,
+  closeMethods: ['overlay', 'button', 'escape'],
+  closeLabel: "Close",
+  cssClass: ['call__wrapper', 'custom-class-2'],
+  onOpen: function(){
+    const button = document.querySelector('.politic__open');
+
+    button.onclick = (e) => {
+      e.preventDefault();
+      showPolitics(); 
+    };
+  },
+});
+
+// wrapper callback
+const callBackWrap = () => {
+  return`
+    <div class="call">
+      <div class="call__title">Заказать звонок</div>
+      <form class="call__form">
+        <div class="contacts__form_item call__item">
+          <input type="text" name="name" class="contacts__form_input call__input" required/>
+          <label class="contacts__form_label"> Ваше имя </label>
+        </div>
+        <div class="contacts__form_item call__item">
+          <input type="tel" name="tel" class="contacts__form_input call__input" required/>
+          <label class="contacts__form_label"> Ваш телефон </label>
+        </div>
+        <div class="contacts__form_offer call__offer">
+          <label>
+            <input type="checkbox" class="contacts__form_checkbox" id="check-modal" />
+            <span />
+          </label>
+          <div>Я принимаю <a class="politic__open"><span>соглашение сайта</span></a> об обработке персональных данных</div>
+        </div>
+        <div class="contacts__form_footer">
+          <button type="submit" class="button"> Отправить </button>
+        </div>
+      </form>
+    </div>
+  `;
+};
+
+const callBack = () => {
+  const callBackButton = Array.prototype.slice.call(document.querySelectorAll('.header__callback'));
+  if(!callBackButton) return null;
+
+  callBackButton.forEach(item => {
+    item.onclick = (e) => {
+      e.preventDefault();
+    
+      callBackModal.setContent(callBackWrap());
+      callBackModal.open();
+
+      const checkbox = document.querySelector('#check-modal');
+      const telInputs = [...document.querySelectorAll('input[type="tel"]')];
+
+      telInputs.forEach(input => new Inputmask('+7 (999) 999-99-99').mask(input));
+      
+      document.querySelector(".call__form").onsubmit = (e) => {
+        e.preventDefault();
+        if(!checkbox.checked){
+          alertify.error("Вы не приняли соглашение об обработке персональных данных");
+        } else {
+          sendMail('.call__form').then(() => (alertify.success("Ваша заявка отправленна"), document.querySelector(".call__form").reset()));
+          callBackModal.close();
+        }
+      };
+    };
+  });
+};
+callBack();
+
+/**
+ * Отправка заявки контакты
+ */
+var contactsForm = () => {
+  const form = document.querySelector(".contacts__form");
+  if(!form) return null;
+
+  const submit = document.querySelector('.footer__submit');
+  const checkbox = document.querySelector('.contacts__form_checkbox');
+
+  form.onsubmit = (e) => {
+    e.preventDefault();
+    if(!checkbox.checked){
+      alertify.error("Вы не приняли соглашение об обработке персональных данных");
+    } else {
+      sendMail('.contacts__form').then(() => (alertify.success("Ваша заявка отправленна"), document.querySelector(".contacts__form").reset()));
+    }
+  };
+};
+contactsForm();
