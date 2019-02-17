@@ -79,6 +79,7 @@ html
   color rgb(173, 2, 1)
   border: 0.1rem solid rgb(173, 2, 1);
   cursor pointer
+  white-space: nowrap
   box-shadow: 0 9px 16px rgba(0, 0, 0, 0.11)
   transition:  0.4s
   &:last-child
@@ -116,6 +117,9 @@ html
 @media (max-width: 1024px)
   html
     font-size: 7px
+  .section
+    &__block
+      padding: 2rem 0 4rem
 @media (max-width: 1000px)
   html
     font-size: 10px
@@ -123,5 +127,7 @@ html
   html
     font-size: 8px
 @media (max-width: 667px)
-  html
-    font-size: 9px
+  .section
+    &__title 
+      font-size 2.8rem
+      margin-bottom 3rem

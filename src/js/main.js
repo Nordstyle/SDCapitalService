@@ -46,6 +46,17 @@ const certificatesSlider = () => {
       nextEl: '.sertificates .swiper-button-next',
       prevEl: '.sertificates .swiper-button-prev',
     },
+    breakpoints: {
+      1024: {
+        slidesPerView: 3
+      },
+      600: {
+        slidesPerView: 2
+      },
+      400: {
+        slidesPerView: 1
+      }
+    }
   });
 };
 certificatesSlider();
@@ -92,7 +103,7 @@ const politic = `<div style="font-size: 1.6rem; line-height: 2.4rem;">
 const politicModal = new tingle.modal({
   stickyFooter: false,
   closeMethods: ['overlay', 'button', 'escape'],
-  closeLabel: "Close",
+  closeLabel: "Закрыть",
   cssClass: ['politic_wrapper', 'custom-class-2']
 });
 
@@ -117,27 +128,23 @@ politicHandlers();
 /**
  * Открытие/Закрытие мобильного меню
  */
-// !function(){
-//   const body = document.querySelector('body')
-//   const menuButton = document.querySelector('.mobile__menu');
-//   const menuItems = document.querySelectorAll('.header__li a')
-//   const closeButton = document.querySelector('.header__close');
-//   const menu = document.querySelector('.header__nav');
-//   menuItems.forEach(el=>{
-//     el.onclick = () => {
-//       menu.style.transform = '';
-//       body.style.overflow = "";
-//     }
-//   })
-//   menuButton.onclick = () => {
-//     menu.style.transform = 'translateX(0%)';
-//     body.style.overflow = "hidden";
-//   }
-//   closeButton.onclick = () => {
-//     menu.style.transform = '';
-//     body.style.overflow = "";
-//   }
-// }()
+!function(){
+  const body = document.querySelector('body');
+  const menuButton = document.querySelector('.mobile__icon');
+  const closeButton = document.querySelector('.mobile__close');
+  const menu = document.querySelector('.mobile__menu');
+
+  menuButton.onclick = () => {
+    menuButton.style.display = 'none';
+    menu.style.transform = 'translateX(0%)';
+    body.style.overflow = "hidden";
+  }
+  closeButton.onclick = () => {
+    menuButton.style.display = '';
+    menu.style.transform = '';
+    body.style.overflow = "";
+  }
+}();
 
 
 const phonesMask = () => {
@@ -168,7 +175,7 @@ var sendMail = (selector) => {
 var callBackModal = new tingle.modal({
   stickyFooter: false,
   closeMethods: ['overlay', 'button', 'escape'],
-  closeLabel: "Close",
+  closeLabel: "Закрыть",
   cssClass: ['call__wrapper', 'custom-class-2'],
   onOpen: function(){
     const button = document.querySelector('.politic__open');

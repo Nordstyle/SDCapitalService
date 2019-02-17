@@ -1,8 +1,9 @@
 .header 
     padding 1.8rem 0
-    height 96px
     box-shadow 0 10px 20px -10px rgba(0, 0, 0, 0.09), 0 5px 10px -5px rgba(0, 0, 0, 0.09)
     border-bottom 1px solid #E2E2E2
+    &__mobIcon
+        display none
     &__question 
         margin-right 2rem
     &__wrapper 
@@ -60,3 +61,11 @@
             text-align: center
             
                 
+@media (max-width: 700px)
+    .header 
+        &__wrapper
+            justify-content flex-end
+        &__left 
+            display none
+        &__mobIcon
+            display block
