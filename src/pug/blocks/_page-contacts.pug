@@ -1,0 +1,47 @@
+section.page
+  .g-wrapper
+    .section__title.section__title_left Контакты
+    .contacts__container
+      .contacts__left.page-contacts__left
+        .page-contacts__merge
+          .contacts__item.page-contacts__subitem
+            .contacts__title Информация
+            a(href="tel:(383)3622118").contacts__link.contacts__link_phone (383) 362-21-18
+            a(href="mailto:Sd_ks@mail.ru").contacts__link.contacts__link_mail Sd_ks@mail.ru
+            .contacts__link.contacts__link_target 630008, г. Новосибирск, ул. Толстого, д. 56, оф.1
+            .contacts__link.contacts__link_user Директор Морозов Константин Александрович
+          .contacts__item.page-contacts__subitem.page-contacts__subitem_requisites
+            .contacts__link ИНН: 5405504774
+            .contacts__link КПП: 540501001
+            .contacts__link ОГРН: 1145476137718
+            .contacts__link ОКПО: 93096062
+            .contacts__link Расчетный счет: 40702810844050027081
+            .contacts__link Банк: СИБИРСКИЙ БАНК ПАО СБЕРБАНК
+            .contacts__link БИК: 045004641
+            .contacts__link Корр. счет: 30101810500000000641
+            .contacts__link Свидетельство о гос.регистрации 54 №004908482 от 05.11.2014. выдан Межрайонной ИФНС № 16 по Новосибирской области
+
+
+        .contacts__item
+          .contacts__title Мы на карте
+          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4eb921d640f66364f19099bdd9a8d5ac30d6a95dfefc01848629c70022ff7753&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=false"></script>
+      .contacts__right.page-contacts__right#contacts
+        form.contacts__form
+          .contacts__form_title Написать нам
+          .contacts__form_string
+            .contacts__form_item
+              input(type="text" name="name" required).contacts__form_input
+              label.contacts__form_label Ваше имя
+            .contacts__form_item
+              input(type="tel" name="tel" required).contacts__form_input
+              label.contacts__form_label Ваш телефон
+          .contacts__form_item
+            input(type="text" name="text" required).contacts__form_input
+            label.contacts__form_label Ваше сообщение
+          .contacts__form_offer
+            label
+              input(type="checkbox").contacts__form_checkbox
+              span
+            .contacts__form_offer_inner Я принимаю <a class="politic__open">соглашение сайта</a> об обработке персональных данных
+          .contacts__form_footer
+            button(type="submit").button.button__orange Отправить сообщение
