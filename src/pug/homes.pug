@@ -1,0 +1,18 @@
+extends layouts/_main.pug
+
+block content
+  include  ./blocks/_header.pug
+  include  ./blocks/_navigation.pug
+  include  ./blocks/_breadcrumbs.pug
+  section.section__block
+    .g-wrapper
+      .section__title.section__title_left Дома в управлении
+      .page__homes_container
+        a(href="#").page__doc
+          .page__doc_image
+          .page__doc_text Общий список многоквартирных домов, находящихся под управлением "СД Капитал Сервис"
+        .page__homes_text Многоквартирных домов, где был бы, расторгнут договор управления с «СД Капитал Сервис» нет.
+
+  include  ./blocks/_contacts.pug
+  include  ./blocks/_mobile.pug
+  include  ./blocks/_footer.pug

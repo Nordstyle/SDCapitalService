@@ -1,4 +1,40 @@
 .page
+  &__doc
+    display flex
+    align-items center
+    justify-content flex-start
+    width 100%
+    padding 1rem
+    transition 0.3s
+    margin-bottom 2rem
+    &_image
+      position relative
+      margin-right 1rem
+      transition 0.3s
+      width 2rem
+      height 2rem
+      &:after
+        position absolute
+        left 0
+        top 0
+        width 2.4rem
+        content '\f1c1'
+        font-size 2rem
+        color rgb(173, 2, 1)
+        font-family FontAwesome
+    &_text
+      font-size 1.6rem
+      color rgb(173, 2, 1);
+      transition 0.3s
+    &_subtext
+      font-size 1.6rem
+    &:hover
+      background-color rgba(173, 2, 1,0.3);
+    &:hover .page__doc_text
+      color white
+  &__homes
+    &_text
+      font-size 1.6rem
   &__news
     &_text
       font-size 1.6rem

@@ -34,17 +34,17 @@ const parallaxSlider = () => {
 parallaxSlider();
 
 /**
- * Слайдер сертификатов 
+ * Слайдер сертификатов
  */
 
 const certificatesSlider = () => {
-  var swiper = new Swiper('.sertificates .swiper-container', {
+  var swiper = new Swiper('.sertificates__container .swiper-container', {
     speed: 600,
     slidesPerView: 4,
     spaceBetween: 30,
     navigation: {
-      nextEl: '.sertificates .swiper-button-next',
-      prevEl: '.sertificates .swiper-button-prev',
+      nextEl: '.sertificates__container .swiper-button-next',
+      prevEl: '.sertificates__container .swiper-button-prev',
     },
     breakpoints: {
       1024: {
@@ -61,9 +61,9 @@ const certificatesSlider = () => {
 };
 certificatesSlider();
 
-lightGallery(document.querySelector('.sertificates .swiper-wrapper'), {
+lightGallery(document.querySelector('.sertificates__container .swiper-wrapper'), {
   thumbnail:true
-}); 
+});
 
 //Smooth scroll
 const scroll = new SmoothScroll('a[href*="#"]', {
@@ -182,7 +182,7 @@ var callBackModal = new tingle.modal({
 
     button.onclick = (e) => {
       e.preventDefault();
-      showPolitics(); 
+      showPolitics();
     };
   },
 });
@@ -223,7 +223,7 @@ const callBack = () => {
   callBackButton.forEach(item => {
     item.onclick = (e) => {
       e.preventDefault();
-    
+
       callBackModal.setContent(callBackWrap());
       callBackModal.open();
 
@@ -231,7 +231,7 @@ const callBack = () => {
       const telInputs = [...document.querySelectorAll('input[type="tel"]')];
 
       telInputs.forEach(input => new Inputmask('+7 (999) 999-99-99').mask(input));
-      
+
       document.querySelector(".call__form").onsubmit = (e) => {
         e.preventDefault();
         if(!checkbox.checked){
